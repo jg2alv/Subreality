@@ -18,8 +18,10 @@ public class Spawner : MonoBehaviour
         for(int i = 0; i < startingCells; i++)
         {
             Vector3 spawnPosition = new Vector3(Random.Range(-10, 10), 0.5f, Random.Range(-10, 10));
-            Instantiate(cellPrefab, spawnPosition, Quaternion.identity);
+            GameObject startingCell = Instantiate(cellPrefab, spawnPosition, Quaternion.identity);
             cells++;
+
+            startingCell.GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         }
     }
 
@@ -27,5 +29,5 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         cellCounter.text = cells.ToString();
-    }
+    }   
 }

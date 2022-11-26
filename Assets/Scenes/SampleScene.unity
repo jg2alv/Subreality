@@ -594,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bc4275517d7ac468dc0ec020d2a5b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingCells: 8
+  startingCells: 25
   cellPrefab: {fileID: 5907471808764023939, guid: 95d17522ba191d344abe0528f91ba5c9, type: 3}
   cellCounter: {fileID: 1208028004}
   cells: 0
