@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Cell : MonoBehaviour
@@ -32,12 +34,15 @@ public class Cell : MonoBehaviour
 
     void OnCollisionEnter(Collision collision){
         if(collision.gameObject.CompareTag("Cell")){
+            GameObject spawner = GameObject.Find("Spawner");
             float reproduction = Random.Range(0f, 1f);
 
             if(reproduction < reproductionSuccessRate){
+                spawner.GetComponent<Spawner>().cells--;
                 Destroy(this.gameObject);
             } else {
-                Instantiate(gameObject, transform.position * 1.1f, Quaternion.identity);
+                Instantiate(gameObject, new Vector3(Random.Range(-250, 250), 0.5f, Random.Range(-250, 250)), Quaternion.identity);
+                spawner.GetComponent<Spawner>().cells++;
             }
         }
     }
